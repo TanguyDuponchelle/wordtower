@@ -1,12 +1,10 @@
-const app = require('express')();
+const express = require('express');
+const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io').listen(server);
 const ent = require('ent'); // Permet de bloquer les caractères HTML (sécurité équivalente à htmlentities en PHP)
 
-// Chargement de la page index.html
-app.get('/', function (req, res) {
-    res.sendfile(__dirname + '/index.html');
-});
+app.use(express.static(__dirname));
 
 io.sockets.on('connection', function (socket, pseudo) {
     // Dès qu'on nous donne un pseudo, on le stocke en variable de session et on informe les autres personnes
@@ -21,6 +19,11 @@ io.sockets.on('connection', function (socket, pseudo) {
         message = ent.encode(message);
         socket.broadcast.emit('message', { pseudo: socket.pseudo, message: message });
     });
+
+    socket.on('playerPosUpdate', function (data) {
+        console.log(data)
+        socket.broadcast.emit('playerPosUpdate', {playerNumber: data.number, x: data.x, y: data.y });
+    });
 });
 
-server.listen(8080, '192.168.182.132');
+server.listen(4000);

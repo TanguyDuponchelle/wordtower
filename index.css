@@ -4,7 +4,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
   --input-width : 70vw;
 }
 body{
-  background-color: red;
+  background-color: black;
 }
 canvas{
   background-image: url('./assets/bomb.png');
@@ -47,4 +47,31 @@ canvas{
 .hidden{
   display:none !important;
   transition: ease .3s;
+}
+#countdown{
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  color: #fff;
+  font-size: 32px;
+  font-family: sans-serif;
+}
+#game-over{
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#game-over__link{
+  outline: none;
+}
+.game-over__title{
+  font-size: 50px;
 }

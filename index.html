@@ -1,125 +1,15 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <title>SpeedTyping</title>
-    <style>
-        #zone_chat strong {
-            color: white;
-            background-color: black;
-            padding: 2px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Typer Fighter</title>
+  <link rel="stylesheet" href="index.css">
+  </style>
 </head>
 
 <body>
-    <h1>SpeedTyping</h1>
-
-    <form action="/" method="post" id="formulaire_chat">
-        <input type="text" name="message" id="message" placeholder="Votre message..." size="50" autofocus />
-        <input type="submit" id="envoi_message" value="Envoyer" />
-    </form>
-
-    <section id="zone_chat">
-
-    </section>
-
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-    // The player is a collection of bodies and sensors
-    playerController = {
-        matterSprite: this.matter.add.sprite(0, 0, 'player', 4),
-        blocked: {
-            left: false,
-            right: false,
-            bottom: false
-        },
-        numTouching: {
-            left: 0,
-            right: 0,
-            bottom: 0
-        },
-        sensors: {
-            bottom: null,
-            left: null,
-            right: null
-        },
-        time: {
-            leftDown: 0,
-            rightDown: 0
-        },
-        lastJumpedAt: 0,
-        speed: {
-            run: 7,
-            jump: 10
-        }
-    };
-
-    var M = Phaser.Physics.Matter.Matter;
-    var w = playerController.matterSprite.width;
-    var h = playerController.matterSprite.height;
-
-    // The player's body is going to be a compound body:
-    //  - playerBody is the solid body that will physically interact with the world. It has a
-    //    chamfer (rounded edges) to avoid the problem of ghost vertices: http://www.iforce2d.net/b2dtut/ghost-vertices
-    //  - Left/right/bottom sensors that will not interact physically but will allow us to check if
-    //    the player is standing on solid ground or pushed up against a solid object.
-    var playerBody = M.Bodies.rectangle(0, 0, w * 0.75, h, { chamfer: { radius: 10 } });
-    playerController.sensors.bottom = M.Bodies.rectangle(0, h * 0.5, w * 0.5, 5, { isSensor: true });
-    playerController.sensors.left = M.Bodies.rectangle(-w * 0.45, 0, 5, h * 0.25, { isSensor: true });
-    playerController.sensors.right = M.Bodies.rectangle(w * 0.45, 0, 5, h * 0.25, { isSensor: true });
-    var compoundBody = M.Body.create({
-        parts: [
-            playerBody, playerController.sensors.bottom, playerController.sensors.left,
-            playerController.sensors.right
-        ],
-        friction: 0.01,
-        restitution: 0.05 // Prevent body from sticking against a wall
-    });
-
-    playerController.matterSprite
-        .setExistingBody(compoundBody)
-        .setFixedRotation() // Sets max inertia to prevent rotation
-        .setPosition(630, 1000);
-
-    // ADD BOX
-    this.matter.add.image(630, 750, 'box');
-    this.matter.add.image(630, 650, 'box');
-
-        // Connexion à socket.io
-        var socket = io.connect('http://192.168.182.132:8080');
-
-        // On demande le pseudo, on l'envoie au serveur et on l'affiche dans le titre
-        var pseudo = prompt('Quel est votre pseudo ?');
-        socket.emit('nouveau_client', pseudo);
-        document.title = pseudo + ' - ' + document.title;
-
-        // Quand on reçoit un message, on l'insère dans la page
-        socket.on('message', function (data) {
-            insereMessage(data.pseudo, data.message)
-        })
-
-        // Quand un nouveau client se connecte, on affiche l'information
-        socket.on('nouveau_client', function (pseudo) {
-            $('#zone_chat').prepend('<p><em>' + pseudo + ' a rejoint le Chat !</em></p>');
-        })
-
-        // Lorsqu'on envoie le formulaire, on transmet le message et on l'affiche sur la page
-        $('#formulaire_chat').submit(function () {
-            var message = $('#message').val();
-            socket.emit('message', message); // Transmet le message aux autres
-            insereMessage(pseudo, message); // Affiche le message aussi sur notre page
-            $('#message').val('').focus(); // Vide la zone de Chat et remet le focus dessus
-            return false; // Permet de bloquer l'envoi "classique" du formulaire
-        });
-
-        // Ajoute un message dans la page
-        function insereMessage(pseudo, message) {
-            $('#zone_chat').prepend('<p><strong>' + pseudo + '</strong> ' + message + '</p>');
-        }
-    </script>
+  
 </body>
 
 </html>
