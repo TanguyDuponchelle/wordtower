@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Typer Fighter</title>
+  <link rel="stylesheet" href="index.css">
+  <script src="//cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js"></script>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://kit.fontawesome.com/d4f7a7ae94.js" crossorigin="anonymous"></script>
+  </style>
+</head>
+
+<body>
+  <form id="typer" class="hidden" onsubmit="return false;">
+    <label id="typerLabel" for="word"></label>
+    <input id="typerInput" type="text" name="word" autocomplete="off" />
+  </form>
+  <form action="/" method="post" id="formulaire_chat" class="hidden">
+    <input type="text" name="message" id="message" placeholder="Votre message..." size="50" autofocus />
+    <input type="submit" id="envoi_message" value="Envoyer" />
+  </form>
+  <section id="zone_chat" class="hidden"></section>
+  <span id="countdown"></span>
+  <div id="game-over" class="hidden">
+    <p class="game-over__title">You loose</p>
+    <a href="/" id="game-over__link">Enter for a new game <i class="fas fa-play"></i></a>
+  </div>
+  <div id="player2" style="background-image: url(''); width: 32px; height: 48px; position: absolute;"></div>
+  <script>
+    let playerNumber = prompt('number');
+  </script>
+  <script src="local.js"></script>
+  <script src="timer.js"></script>
+  <script src="function.js"></script>
+</body>
+
+</html>
