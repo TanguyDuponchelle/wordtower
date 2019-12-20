@@ -5,6 +5,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
 }
 body{
   background-color: black;
+  position: relative;
 }
 canvas{
   background-image: url('./assets/bomb.png');
@@ -68,10 +69,25 @@ canvas{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  z-index: 5;
 }
 #game-over__link{
   outline: none;
 }
 .game-over__title{
   font-size: 50px;
+}
+#connected{
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-size: 32px;
+  font-family: serif;
+  color: #fff;
+}
+#start{
+  margin: auto;
+  padding: 25px;
+  font-size: 50px;
+  color:#fff;
 }
