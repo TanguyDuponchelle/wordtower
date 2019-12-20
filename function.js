@@ -135,6 +135,7 @@ function create() {
 function update() {
   socket.emit('playerPosUpdate', { number: playerNumber === 1 ? 1 : 2, x: player.x, y: player.y });
   if (gameOver) {
+    document.getElementById('typerInput').blur();
     document.getElementById('game-over').classList.remove('hidden');
     document.getElementById('game-over__link').focus();
   }

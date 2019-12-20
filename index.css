@@ -73,7 +73,7 @@ canvas{
 }
 #game-over__link{
   outline: none;
-  display: none;
+  color: black;
 }
 .game-over__title{
   font-size: 50px;
