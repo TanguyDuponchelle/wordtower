@@ -294,6 +294,7 @@ h1 sub
 @keyframes scroll {
 	0% { top: 100%; }
 	100% { top: -170%; }
+}
 #connected{
   position: absolute;
   top: 25px;

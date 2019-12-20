@@ -2,100 +2,117 @@
 <html lang="fr-FR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Type Fighter</title>
-    <style>
-        body {
-  height: 100vh;
-  background-image:url();
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Type Fighter</title>
+  <audio autoPlay src="./wordtower/assets/TypeFighter-Song.mp3" type="audio/mp3">
+  </audio>
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-image: url("./wordtower/assets/wallpaper.jpg");
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
 
-#startScreen {
-  margin: auto;
-  margin-top: 50px;
-  position: relative;
-  width: 300px;
-  height: 200px;
-  background-color: whitesmoke;
-  color: #333;
-  text-align: center;
-  border: 8px solid;
-  border-radius: 10px;
-  box-shadow: 0 1px 32px white;
-  transform: rotate(0) scale(0);
-  animation: boom 1s linear;
-  animation-fill-mode: forwards;
-}
+    #footerText p {
+      font-family: 'Press Start 2P', cursive;
+      color: white;
+      font-size: 60%;
+      text-align: center;
+      margin-top: 100px;
+      text-shadow: 2px 2px 0 black, 4px 4px 0 black;
+      margin-top: auto;
+    }
 
-@keyframes boom {
-  100% {
-    transform: rotate(1080deg) scale(1);
-  }
-}
+    #startScreen {
+      margin: auto;
+      margin-top: 50px;
+      text-align: center;
+      transform: rotate(0) scale(0);
+      animation: boom 1s linear;
+      animation-fill-mode: forwards;
+    }
 
-#startScreen div {
-  height: 50%;
-}
+    @keyframes boom {
+      100% {
+        transform: rotate(1080deg) scale(1);
+      }
+    }
 
-#startScreen h1 {
-  position:absolute;
-  width: 100%;
-  color: #222;
-  font-size: 40px;
-  text-shadow: 0 1px 2px;
-  animation: pulse 6s linear infinite;
-}
+    #startScreen div {
+      height: 50%;
+    }
 
-@keyframes pulse {
-  50% {
-    transform: scale(1.1);
-  }
-}
+    #startScreen img {
+      width: 70%;
+      animation: pulse 6s linear infinite;
+    }
 
-#startScreen p {
-  font-weight: bold;
-}
+    @keyframes pulse {
+      50% {
+        transform: scale(1.1);
+      }
+    }
 
-#startScreen span {
-  position: relative;
-  font-size: 18px;
-  animation: up 2s linear infinite;
-  animation-delay: 3s;
-}
+    #startText p {
+      font-family: 'Press Start 2P', cursive;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 90px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 2px 2px 0 black, 4px 4px 0 black;
+      padding: 10px;
+      text-align: center;
+      width: 50%;
+      font-size: 200%;
+    }
 
-@keyframes up {
-  25% {
-    top: -4px;
-  }
-}
+    @keyframes up {
+      25% {
+        top: -4px;
+      }
+    }
 
-#gameOn {
-  font-size: 100px;
-  text-align: center;
-  text-shadow: 0 2px 0 limegreen, 0 1px 64px white;
-  animation: pulse 1.5s linear infinite;
-}
-    </style>
-    <script>
-        window.addEventListener("keyup", ev => {
-            if (ev.keyCode === 38) {
-              //YOUR CODE HERE
-              
-              //example below
-              document.body.innerHTML = "<h1 id='gameOn'>GAME ON!!!</h1>"
-            }
-          });
-    </script>
+    #gameOn {
+      font-size: 100px;
+      text-align: center;
+      text-shadow: 0 2px 0 white, 0 1px 64px white;
+      animation: pulse 1.5s linear infinite;
+    }
+
+    ;
+  </style>
+  <script>
+    window.addEventListener("keyup", ev => {
+      if (ev.keyCode === 13) {
+        //YOUR CODE HERE
+        //example below
+        document.body.innerHTML = "<h1 id='gameOn'>TYPE FIGHT, MOTHERF*CKER !</h1>"
+      }
+    });
+  </script>
 </head>
+
 <body>
-    <div id="startScreen">
-        <div>
-          <h1>OP's Game</h1>
-        </div>
-        <div>
-          <p>click in the window<br/>press up arrow (<span>&uarr;</span>) to start</p>
-        </div>
-      </div>
+  <div id="startScreen">
+    <div>
+      <img src="./wordtower/assets/type_fighter_logo1.png"></img>
+    </div>
+  </div>
+  <div id="startText">
+    <p>PUSH ENTER TO START</p>
+  </div>
+  <footer>
+    <div id="footerText">
+      <p>©2019, Wild Code, Inc.</p>
+      <p>Licensed by Wild Code Inc, LTD.</p>
+      <p>Type Fighter is a registered trademark of AdTaReAl, Inc.</p>
+    </div>
+  </footer>
 </body>
+
 </html>

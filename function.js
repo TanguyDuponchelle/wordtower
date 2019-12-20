@@ -75,7 +75,7 @@ function preload() {
 }
 function create() {
 
-  this.add.image(800, 600, 'sky');
+  this.add.image(700, 400, 'sky');
   platforms = this.physics.add.staticGroup();
   //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
   platforms.create(300, window.innerHeight + 75, 'ground').setScale(6).refreshBody();

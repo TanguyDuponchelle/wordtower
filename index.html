@@ -6,26 +6,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <audio autoPlay src="./assets/TypeFighter-Song.mp3" type="audio/mp3">
+  </audio>
   <link rel="stylesheet" href="index.css">
   <title>Type Fighter</title>
   <style>
     body {
-      height: 100vh;
-      background-image: url();
+      background-image: url("./assets/wallpaper.jpg");
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    #footerText p {
+      font-family: 'Press Start 2P', cursive;
+      color: white;
+      font-size: 60%;
+      text-align: center;
+      text-shadow: 2px 2px 0 black, 4px 4px 0 black;
+      margin-top: auto;
     }
 
     #startScreen {
       margin: auto;
       margin-top: 50px;
-      position: relative;
-      width: 300px;
-      height: 200px;
-      background-color: whitesmoke;
-      color: #333;
       text-align: center;
-      border: 8px solid;
-      border-radius: 10px;
-      box-shadow: 0 1px 32px white;
       transform: rotate(0) scale(0);
       animation: boom 1s linear;
       animation-fill-mode: forwards;
@@ -41,12 +48,8 @@
       height: 50%;
     }
 
-    #startScreen h1 {
-      position: absolute;
-      width: 100%;
-      color: #222;
-      font-size: 40px;
-      text-shadow: 0 1px 2px;
+    #startScreen img {
+      width: 70%;
       animation: pulse 6s linear infinite;
     }
 
@@ -55,16 +58,23 @@
         transform: scale(1.1);
       }
     }
-
-    #startScreen p {
+  #startText{
+    text-align: center;
+    margin: 25px; 
+  }
+    #startText a {
+      font-family: 'Press Start 2P', cursive;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 90px;
       font-weight: bold;
-    }
-
-    #startScreen span {
-      position: relative;
-      font-size: 18px;
-      animation: up 2s linear infinite;
-      animation-delay: 3s;
+      color: white;
+      text-shadow: 2px 2px 0 black, 4px 4px 0 black;
+      padding: 10px;
+      text-align: center;
+      width: 50%;
+      font-size: 200%;
+      outline: none;
     }
 
     @keyframes up {
@@ -76,30 +86,38 @@
     #gameOn {
       font-size: 100px;
       text-align: center;
-      text-shadow: 0 2px 0 limegreen, 0 1px 64px white;
+      text-shadow: 0 2px 0 white, 0 1px 64px white;
       animation: pulse 1.5s linear infinite;
     }
+
+    ;
   </style>
 </head>
 
 <body>
   <div id="startScreen">
     <div>
-      <h1>OP's Game</h1>
-    </div>
-    <div>
-      <p>click in the window<br />press up arrow (<span>&uarr;</span>) to start</p>
+      <img src="./assets/type_fighter_logo1.png"></img>
     </div>
   </div>
-  <span id="connected"></span>
+  <div id="startText">
+    <a href="/game.html" autofocus>PUSH ENTER TO START</a>
+  </div>
+  <footer>
+    <div id="footerText">
+      <p>©2019, Wild Code, Inc.</p>
+      <p>Licensed by Wild Code Inc, LTD.</p>
+      <p>Type Fighter is a registered trademark of AdTaReAl, Inc.</p>
+    </div>
+  </footer>
   <script>
-    
+
     let pseudo = prompt('Quel est votre pseudo ?');
     let playerNumber = prompt('Quel est votre numéro ?');
 
     window.addEventListener("keyup", ev => {
       if (ev.keyCode === 38) {
-        document.body.innerHTML = "<h1 id='gameOn'>GAME ON!!!</h1>"
+        document.location.href = "/game.html";
       }
     });
   </script>
