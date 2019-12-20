@@ -1,5 +1,4 @@
 // Connexion à socket.io
-// var socket = io.connect('/');
 let starNumber = 10;
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
@@ -135,7 +134,7 @@ function create() {
   this.physics.add.collider(player, bombs, hitBomb, null, this);
 }
 function update() {
-  socket.emit('playerPosUpdate', {number: playerNumber === 1 ? 1 : 2, x: player.x, y: player.y });
+  socket.emit('playerPosUpdate', { number: playerNumber === 1 ? 1 : 2, x: player.x, y: player.y });
   if (gameOver) {
     document.getElementById('game-over').classList.remove('hidden');
     document.getElementById('game-over__link').focus();
@@ -157,9 +156,7 @@ function update() {
   }
 }
 function collectStar(player, star) {
-  // console.log(star);
-  star.disableBody(true, true);  
-  socket.emit('starDestroy', star);
+  star.disableBody(true, true);
   //  Add and update the score
   score += 10;
   start();

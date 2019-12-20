@@ -24,12 +24,68 @@
   <section id="zone_chat" class="hidden"></section>
   <span id="countdown"></span>
   <div id="game-over" class="hidden">
-    <p class="game-over__title">You loose</p>
-    <a href="/" id="game-over__link">Enter for a new game <i class="fas fa-play"></i></a>
+    <p class="game-over__title">
+      <div style="overflow:hidden; position:absolute; left:0; top:0; width:50px; height:25px;">
+        <div style="margin-top:-290px;">
+          <object width="420" height="315">
+            <param name="movie"
+              value="https://www.youtube.com/v/EjMNNpIksaI?version=3&amp;hl=en_US&autoplay=1&amp;autohide=2">
+            </param>
+            <param name="allowFullScreen" value="true">
+            </param>
+            <param name="allowscriptaccess" value="always">
+            </param>
+            <embed src="https://www.youtube.com/v/EjMNNpIksaI?version=3&amp;hl=en_US&autoplay=1&amp;autohide=2"
+              type="application/x-shockwave-flash" width="420" height="315" allowscriptaccess="always"
+              allowfullscreen="true"></embed>
+          </object>
+        </div>
+      </div>
+
+      <p id="start">A short time ago in a browser very, very close&hellip;</p>
+
+      <h1>TYPERFIGHTER</h1>
+
+      <div id="titles">
+        <div id="titlecontent">
+
+          <p class="center">EPISODE IX<br />
+            A NEW HOPE YOUR FUTUR GAME</p>
+
+          <p>You loose</p>
+
+          <p>You loose</p>
+
+          <p>You loose</p>
+
+          <p>You loose</p>
+
+          <p>You loose</p>
+
+          <p>You loose</p>
+
+          <p>Press Enter for a new game</p>
+
+          <p>You loose</p>
+
+          <p>Press Enter for a new game</p>
+
+          <p>You loose</p>
+
+          <p>Press Enter for a new game</p>
+
+          <p>You loose</p>
+
+        </div>
+      </div>
+      <iframe style="visibility:hidden" width="560" height="315" src="https://www.youtube.com/embed/1KAOq7XX2OY"
+        frameborder="0" allowfullscreen></iframe>
+    </p>
+    <a href="/" id="game-over__link">Press Enter for a new game <i class="fas fa-play"></i></a>
   </div>
   <div id="player2" style="background-color: red; width: 32px; height: 48px; position: absolute;"></div>
   <script>
-    let playerNumber = prompt('number');
+    var playerNumber = prompt('number');
   </script>
   <script src="local.js"></script>
   <script src="timer.js"></script>
