@@ -16,7 +16,7 @@ socket.on('nouveau_client', function (pseudo) {
 })
 
 socket.on('playerPosUpdate', function (data) {
-  console.log(data.number)
+  // console.log(data.number)
   const player = document.getElementById('player'+data.playerNumber);
   player.style.top = data.y - player.offsetHeight/2 + "px";
   player.style.left = data.x -   player.offsetWidth/2 + "px";

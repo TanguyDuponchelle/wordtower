@@ -76,6 +76,8 @@ function preload() {
   this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
 }
 function create() {
+
+  this.add.image(800, 600, 'sky');
   platforms = this.physics.add.staticGroup();
   //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
   platforms.create(300, window.innerHeight + 75, 'ground').setScale(6).refreshBody();
@@ -133,7 +135,7 @@ function create() {
   this.physics.add.collider(player, bombs, hitBomb, null, this);
 }
 function update() {
-  setTimeout(socket.emit('playerPosUpdate', {number: playerNumber === 1 ? 1 : 2, x: player.x, y: player.y }), 1000);
+  socket.emit('playerPosUpdate', {number: playerNumber === 1 ? 1 : 2, x: player.x, y: player.y });
   if (gameOver) {
     document.getElementById('game-over').classList.remove('hidden');
     document.getElementById('game-over__link').focus();
