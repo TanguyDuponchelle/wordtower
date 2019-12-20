@@ -3,7 +3,7 @@ let starDestroy;
 let socket = io.connect('/');
 // On demande le pseudo, on l'envoie au serveur et on l'affiche dans le titre
 let pseudo = prompt('Quel est votre pseudo ?');
-socket.emit('nouveau_client', pseudo);
+socket.emit('nouveau_client', "a");
 document.title = pseudo + ' - ' + document.title;
 // Quand on reçoit un message, on l'insère dans la page
 socket.on('message', function (data) {
@@ -23,7 +23,7 @@ socket.on('playerPosUpdate', function (data) {
 })
 
 socket.on('starDestroy', function (data) {
-  console.log(data)
+  console.log("DATA : ", data);
   starDestroy = data;
 })
 

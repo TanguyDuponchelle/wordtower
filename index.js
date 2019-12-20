@@ -24,9 +24,9 @@ io.sockets.on('connection', function (socket, pseudo) {
         socket.broadcast.emit('playerPosUpdate', {playerNumber: data.number, x: data.x, y: data.y });
     });
 
-    socket.on('startDestroy', function (data) {
+    socket.on('starDestroy', function (data) {
         console.log(data)
-        socket.broadcast.emit('starDestroy', data);
+        socket.broadcast.emit('starDestroy', {data});
     });
 });
 
