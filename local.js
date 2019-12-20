@@ -1,9 +1,9 @@
-let starDestroy;
+let starDestroy = null;
 // Connexion à socket.io
 let socket = io.connect('/');
-// On demande le pseudo, on l'envoie au serveur et on l'affiche dans le titre
+socket.emit('playerNumber',"");
 
-let pseudo = prompt('Quel est votre pseudo ?');
+// On demande le pseudo, on l'envoie au serveur et on l'affiche dans le titre
 socket.emit('nouveau_client', pseudo);
 document.title = pseudo + ' - ' + document.title;
 // Quand on reçoit un message, on l'insère dans la page
@@ -17,15 +17,17 @@ socket.on('nouveau_client', function (pseudo) {
 })
 
 socket.on('playerPosUpdate', function (data) {
-  // console.log(data.number)
+  console.log(data)
   const player = document.getElementById('player' + data.playerNumber);
   player.style.top = data.y - player.offsetHeight / 2 + "px";
   player.style.left = data.x - player.offsetWidth / 2 + "px";
 })
 
-socket.on('starDestroy', function (data) {
-  console.log("DATA : ", data);
-  // starDestroy = data;
+socket.on('playerNumber', function (data) {
+  document.getElementById('connected') && (document.getElementById('connected').innerHTML = `${data} Joueur${data > 1 ? "s" : ""} connecté${data > 1 ? "s" : ""}`);
+  if(data > 1){
+    document.getElementById('connected') && document.getElementById('start').classList.remove('hidden');
+  }
 })
 
 // Lorsqu'on envoie le formulaire, on transmet le message et on l'affiche sur la page

@@ -1,4 +1,3 @@
-// Connexion à socket.io
 let starNumber = 10;
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
@@ -43,8 +42,8 @@ input.addEventListener('keyup', (e) => {
 );
 var config = {
   type: Phaser.AUTO,
-  width: window.innerWidth,
-  height: window.innerHeight,
+  width: 1280,
+  height: 720,
   physics: {
     default: 'arcade',
     arcade: {
