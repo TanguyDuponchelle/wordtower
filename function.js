@@ -42,8 +42,8 @@ input.addEventListener('keyup', (e) => {
 );
 var config = {
   type: Phaser.AUTO,
-  width: window.innerWidth,
-  height: window.innerHeight,
+  width: 1280,
+  height: 720,
   physics: {
     default: 'arcade',
     arcade: {
@@ -133,6 +133,7 @@ function create() {
   this.physics.add.collider(player, bombs, hitBomb, null, this);
 }
 function update() {
+  console.log('poire')
   socket.emit('playerPosUpdate', { number: playerNumber === 1 ? 1 : 2, x: player.x, y: player.y });
   if (gameOver) {
     document.getElementById('game-over').classList.remove('hidden');

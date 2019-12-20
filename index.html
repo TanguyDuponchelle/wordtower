@@ -92,15 +92,10 @@
     </div>
   </div>
   <span id="connected"></span>
-  <a href="/game.html" id="start" class="hidden">Start a game</a>
-
-  <script src="local.js"></script>
   <script>
     
     let pseudo = prompt('Quel est votre pseudo ?');
-    localStorage.setItem('pseudo', pseudo)
     let playerNumber = prompt('Quel est votre numéro ?');
-    localStorage.setItem('playerNumber', playerNumber)
 
     window.addEventListener("keyup", ev => {
       if (ev.keyCode === 38) {
@@ -108,6 +103,9 @@
       }
     });
   </script>
+  <a href="/game.html" id="start" class="hidden">Start a game</a>
+
+  <script src="local.js"></script>
 </body>
 
 </html>

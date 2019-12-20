@@ -21,6 +21,7 @@ io.sockets.on('connection', function (socket, pseudo) {
     });
 
     socket.on('playerPosUpdate', function (data) {
+        console.log(data)
         socket.broadcast.emit('playerPosUpdate', { playerNumber: data.number, x: data.x, y: data.y });
     });
 
