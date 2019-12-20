@@ -1,5 +1,5 @@
 // Connexion à socket.io
-var socket = io.connect('/');
+// var socket = io.connect('/');
 let starNumber = 10;
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
@@ -136,7 +136,7 @@ function create() {
 }
 function update() {
   socket.emit('playerPosUpdate', {number: playerNumber === 1 ? 1 : 2, x: player.x, y: player.y });
-  starDestroy.disableBody(true,true)
+  starDestroy && starDestroy.disableBody(true,true);
   if (gameOver) {
     document.getElementById('game-over').classList.remove('hidden');
     document.getElementById('game-over__link').focus();

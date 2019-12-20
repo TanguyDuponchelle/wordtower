@@ -1,10 +1,10 @@
+let starDestroy;
 // Connexion à socket.io
-var socket = io.connect('/');
+let socket = io.connect('/');
 // On demande le pseudo, on l'envoie au serveur et on l'affiche dans le titre
-var pseudo = prompt('Quel est votre pseudo ?');
+let pseudo = prompt('Quel est votre pseudo ?');
 socket.emit('nouveau_client', pseudo);
 document.title = pseudo + ' - ' + document.title;
-
 // Quand on reçoit un message, on l'insère dans la page
 socket.on('message', function (data) {
   insereMessage(data.pseudo, data.message)
@@ -24,12 +24,12 @@ socket.on('playerPosUpdate', function (data) {
 
 socket.on('starDestroy', function (data) {
   console.log(data)
-  const startDestroy = data;
+  starDestroy = data;
 })
 
 // Lorsqu'on envoie le formulaire, on transmet le message et on l'affiche sur la page
 $('#formulaire_chat').submit(function () {
-  var message = $('#message').val();
+  let message = $('#message').val();
   socket.emit('message', message); // Transmet le message aux autres
   insereMessage(pseudo, message); // Affiche le message aussi sur notre page
   $('#message').val('').focus(); // Vide la zone de Chat et remet le focus dessus
