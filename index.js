@@ -25,6 +25,7 @@ io.sockets.on('connection', function (socket, pseudo) {
     });
 
     socket.on('startDestroy', function (data) {
+        console.log(data)
         socket.broadcast.emit('starDestroy', data);
     });
 });

@@ -136,7 +136,7 @@ function create() {
 }
 function update() {
   socket.emit('playerPosUpdate', {number: playerNumber === 1 ? 1 : 2, x: player.x, y: player.y });
-  starDestroy && starDestroy.disableBody(true,true);
+  console.log(starDestroy !== 'undefined' && starDestroy);
   if (gameOver) {
     document.getElementById('game-over').classList.remove('hidden');
     document.getElementById('game-over__link').focus();
@@ -158,7 +158,7 @@ function update() {
   }
 }
 function collectStar(player, star) {
-  // console.log(star);
+  console.log(star);
   star.disableBody(true, true);  
   socket.emit('startDestroy', star);
   //  Add and update the score
