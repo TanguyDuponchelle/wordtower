@@ -22,6 +22,11 @@ socket.on('playerPosUpdate', function (data) {
   player.style.left = data.x -   player.offsetWidth/2 + "px";
 })
 
+socket.on('starDestroy', function (data) {
+  console.log(data)
+  const startDestroy = data;
+})
+
 // Lorsqu'on envoie le formulaire, on transmet le message et on l'affiche sur la page
 $('#formulaire_chat').submit(function () {
   var message = $('#message').val();
