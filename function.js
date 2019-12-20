@@ -133,7 +133,6 @@ function create() {
   this.physics.add.collider(player, bombs, hitBomb, null, this);
 }
 function update() {
-  console.log('poire')
   socket.emit('playerPosUpdate', { number: playerNumber === 1 ? 1 : 2, x: player.x, y: player.y });
   if (gameOver) {
     document.getElementById('game-over').classList.remove('hidden');
